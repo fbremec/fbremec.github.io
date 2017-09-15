@@ -34,7 +34,8 @@
 		function addRecette(json){
 			var recettes = json.recettes;
 			for(var i=0; i<recettes.length; i++){
-				var tr = 	"<tr class='ligne"+(i%2)+"'>"
+				var j = i%2;
+				var tr = 	"<tr class='ligne"+j+"'>"
 								+"<td class='colonne'> "+ recettes[i].nom +" </td>"
 					       		+"<td class='colonne'> "+ recettes[i].difficulte +" </td>"
 					       		+"<td class='colonne'> "+ recettes[i].prepa +" </td>"

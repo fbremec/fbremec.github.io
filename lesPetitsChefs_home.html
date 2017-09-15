@@ -2,16 +2,33 @@
 <html>
 <head>
 	<title>Les petits chefs</title>
+	 <link rel="stylesheet" type="text/css" href="lesPetitsChefs_home.css">
+	 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-	<h1>Les petits chefs </h1>
+	<h1 class="titre">Les petits chefs </h1>
+	<img class="imgMenu" onclick="displayMenu()" src="burgerldpi.png"/>
 	<div class="navbar">
-		<ul>
-			<li>appéritifs</li>
-			<li>entrée<</li>
-			<li>plat<</li>
-			<li>déssert<</li>
+		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
+		<ul class="listeOnglet">
+			<li><a href="lesPetitsChefs_apperitifs.html">appéritifs</a></li>
+			<li><a href="">entrée</a></li>
+			<li><a href="">plat</a></li>
+			<li><a href="">déssert</a></li>
 		</ul>
 	</div>
+
+
+	<script>
+		function displayMenu(){
+			
+			var node = $(".navbar")
+			node.toggle( "slide");
+		}
+
+		
+
+	</script>
 </body>
 </html>

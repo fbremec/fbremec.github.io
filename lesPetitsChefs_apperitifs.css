@@ -6,6 +6,7 @@
 
 table{
 	
+	border-collapse: collapse;
 	width: 100%
 }
 
@@ -13,4 +14,17 @@ table{
 	text-align: center;
 	width: 80%;
 	margin-left:10%;
+}
+
+.ligne0, .ligne1, .colonne{
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.ligne0:hover, .ligne1:hover{
+	background: pink;
+}
+
+.ligne0{
+	background: lightgrey;
 }

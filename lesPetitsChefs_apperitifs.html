@@ -7,9 +7,21 @@
 	<script src="lesPetitsChefs_apperitifs.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="lesPetitsChefs_utils.js"></script>
 </head>
 <body>
 	<h1 class="titre">Appéritifs</h1>
+
+	<img class="imgMenu" onclick="displayMenu()" src="burgerldpi.png"/>
+	<div class="navbar">
+		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
+		<ul class="listeOnglet">
+			<li><a href="lesPetitsChefs_apperitifs.html">appéritifs</a></li>
+			<li><a href="">entrée</a></li>
+			<li><a href="">plat</a></li>
+			<li><a href="">déssert</a></li>
+		</ul>
+	</div>
 
 	<div class="listeRecette">
 		<table>
@@ -30,13 +42,16 @@
 	</div>
 	<script type="text/javascript">
 		
+
 		
 		function addRecette(json){
-			var recettes = json.recettes;
+			var recettes = json
+			console.log(json);
+			console.log(recettes);
 			for(var i=0; i<recettes.length; i++){
 				var j = i%2;
 				var tr = 	"<tr class='ligne"+j+"'>"
-								+"<td class='colonne'> "+ recettes[i].nom +" </td>"
+								+"<td class='colonne'> <a href='lesPetitsChefs_recette.html?nom="+recettes[i].nom+"'>"+ recettes[i].nom +"</a> </td>"
 					       		+"<td class='colonne'> "+ recettes[i].difficulte +" </td>"
 					       		+"<td class='colonne'> "+ recettes[i].prepa +" </td>"
 					       		+"<td class='colonne'> "+ recettes[i].cuisson +" </td>"
@@ -46,7 +61,7 @@
 				$(tr).appendTo($('.tbody'));
 			};
 		};
-		addRecette(json);
+		addRecette(jsonRecettesType);
 
 	</script>
 </body>

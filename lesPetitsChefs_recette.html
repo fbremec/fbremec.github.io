@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Les petits chefs</title>
+	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_main.css">
+	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_recette.css">
+	<script src="lesPetitsChefs_recette.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="lesPetitsChefs_utils.js"></script>
+</head>
+<body>
+
+	<h1 class="titre">Appéritifs</h1>
+
+	<img class="imgMenu" onclick="displayMenu()" src="burgerldpi.png"/>
+	<div class="navbar">
+		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
+		<ul class="listeOnglet">
+			<li><a href="lesPetitsChefs_apperitifs.html">appéritifs</a></li>
+			<li><a href="">entrée</a></li>
+			<li><a href="">plat</a></li>
+			<li><a href="">déssert</a></li>
+		</ul>
+	</div>
+
+<script type="text/javascript">
+	
+	var url_String = window.location.href;
+	var url = new URL(url_String);
+	var nom = url.searchParams.get("nom");
+
+	var jsonRecettes = recettes;
+	
+
+
+</script>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h1 class="titre">Appéritifs</h1>
+	<h1 class="titre"></h1>
 
 	<img class="imgMenu" onclick="displayMenu()" src="burgerldpi.png"/>
 	<div class="navbar">
@@ -23,6 +23,9 @@
 			<li><a href="">déssert</a></li>
 		</ul>
 	</div>
+	<div class="containerPrincipal">
+
+	</div>
 
 <script type="text/javascript">
 	
@@ -30,7 +33,19 @@
 	var url = new URL(url_String);
 	var nom = url.searchParams.get("nom");
 
+	//add nom to titre
+	var pNom = "<p>"+nom+"</p>";
+	$(pNom).appendTo($('.titre'));
+
 	var jsonRecettes = recettes;
+	if(recettes[nom] == null){
+		console.log("uivhfrehfer");
+		var pErreur = "<p>Erreur la recette n'existe pas</p>";
+		$(pErreur).appendTo($('.containerPrincipal'));
+
+	}else{
+
+	}
 	
 
 

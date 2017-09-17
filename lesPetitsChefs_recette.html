@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>Les petits chefs</title>
 	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_main.css">
 	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_recette.css">
-	<script src="lesPetitsChefs_recette.js"></script>
+	<script src="lesPetitsChefs_recettes.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script src="lesPetitsChefs_utils.js"></script>
@@ -17,13 +18,17 @@
 	<div class="navbar">
 		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
 		<ul class="listeOnglet">
-			<li><a href="lesPetitsChefs_apperitifs.html">appéritifs</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs">appéritifs</a></li>
 			<li><a href="">entrée</a></li>
 			<li><a href="">plat</a></li>
-			<li><a href="">déssert</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=desserts">déssert</a></li>
 		</ul>
 	</div>
 	<div class="containerPrincipal">
+		<h1>Ingrédients :</h1>
+		<div class="ingredients"></div>
+		<h1>Préparation :</h1>
+		<div class="preparation"></div>
 
 	</div>
 
@@ -32,20 +37,72 @@
 	var url_String = window.location.href;
 	var url = new URL(url_String);
 	var nom = url.searchParams.get("nom");
+	var type = url.searchParams.get("type");
+
+	function printIngredients(ingredients, typeIngredients){
+		var ul = "<p>"+typeIngredients+" : </p> <ul>"
+
+		for(var i=0; i<ingredients.length;i++){
+			console.log(ingredients[i])
+			var li = 	"<li>"+ingredients[i]+"</li>"
+			ul += li
+
+		}
+		ul += "</ul>";
+		$(ul).appendTo($('.ingredients'));
+	}
+
+	function printPreparation(preparation, typePreparation){
+		var ul = "<p>"+typePreparation+" : </p> <ul>"
+		var numero
+		for(var i=0; i<preparation.length;i++){
+			numero = i+1;
+			console.log(preparation[i])
+			var li = 	"<li>"+numero+" : "+preparation[i]+"</li>"
+			ul += li
+
+		}
+		ul += "</ul>";
+		$(ul).appendTo($('.preparation'));
+	}
+
+	function printRecette(recette){
+		if(recette == null){
+			var pErreur = "<p>Erreur la recette n'existe pas</p>";
+			$(pErreur).appendTo($('.containerPrincipal'));
+
+		}else{
+			for(var typeIngredients in recette.ingredients){
+				printIngredients(recette.ingredients[typeIngredients],typeIngredients)
+				
+			}
+			for(var typePreparation in recette.preparation){
+				printPreparation(recette.preparation[typePreparation], typePreparation)	
+			}
+
+		}
+	}
+
+
 
 	//add nom to titre
 	var pNom = "<p>"+nom+"</p>";
 	$(pNom).appendTo($('.titre'));
 
-	var jsonRecettes = recettes;
-	if(recettes[nom] == null){
-		console.log("uivhfrehfer");
-		var pErreur = "<p>Erreur la recette n'existe pas</p>";
-		$(pErreur).appendTo($('.containerPrincipal'));
-
-	}else{
-
+	switch(type){
+		case "apperitifs":
+			var recette = jsonRecettesApperitifs[nom]
+			printRecette(recette)
+			break;
+		case "desserts":
+			var recette = jsonRecettesDesserts[nom]
+			printRecette(recette)
+			break;
 	}
+
+
+	
+	
 	
 
 

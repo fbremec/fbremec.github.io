@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>Les petits chefs</title>
 	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_main.css">
-	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_apperitifs.css">
-	<script src="lesPetitsChefs_apperitifs.js"></script>
+	<link rel="stylesheet" type="text/css" href="lesPetitsChefs_recettesByType.css">
+	<script src="lesPetitsChefs_recettes.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script src="lesPetitsChefs_utils.js"></script>
@@ -16,10 +17,10 @@
 	<div class="navbar">
 		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
 		<ul class="listeOnglet">
-			<li><a href="lesPetitsChefs_apperitifs.html">appéritifs</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs">appéritifs</a></li>
 			<li><a href="">entrée</a></li>
 			<li><a href="">plat</a></li>
-			<li><a href="">déssert</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=desserts">déssert</a></li>
 		</ul>
 	</div>
 
@@ -42,26 +43,41 @@
 	</div>
 	<script type="text/javascript">
 		
-
+		var url_String = window.location.href;
+		var url = new URL(url_String);
+		var type = url.searchParams.get("type");
 		
 		function addRecette(json){
 			var recettes = json
-			console.log(json);
-			console.log(recettes);
-			for(var i=0; i<recettes.length; i++){
+			var i = 0;
+			for(var nom in recettes){
 				var j = i%2;
+				var recette = recettes[nom]
 				var tr = 	"<tr class='ligne"+j+"'>"
-								+"<td class='colonne'> <a href='lesPetitsChefs_recette.html?nom="+recettes[i].nom+"'>"+ recettes[i].nom +"</a> </td>"
-					       		+"<td class='colonne'> "+ recettes[i].difficulte +" </td>"
-					       		+"<td class='colonne'> "+ recettes[i].prepa +" </td>"
-					       		+"<td class='colonne'> "+ recettes[i].cuisson +" </td>"
-					       		+"<td class='colonne'> "+ recettes[i].nbPersonne +" </td>"
-					       		+"<td class='colonne'> "+ recettes[i].prix +"</td>"
+								+"<td class='colonne'> <a href='lesPetitsChefs_recette.html?nom="+recette.nom+"&type="+type+"'>"+ recette.nom +"</a> </td>"
+					       		+"<td class='colonne'> "+ recette.difficulte +" </td>"
+					       		+"<td class='colonne'> "+ recette.prepa +" </td>"
+					       		+"<td class='colonne'> "+ recette.cuisson +" </td>"
+					       		+"<td class='colonne'> "+ recette.nbPersonne +" </td>"
+					       		+"<td class='colonne'> "+ recette.prix +"</td>"
 					       	+"</tr>"
 				$(tr).appendTo($('.tbody'));
+				i++;
 			};
 		};
-		addRecette(jsonRecettesType);
+
+		
+		
+		switch(type){
+			case "apperitifs":
+				addRecette(jsonRecettesApperitifs);
+				break;
+			case "desserts":
+				addRecette(jsonRecettesDesserts)
+				break;
+		}
+
+		
 
 	</script>
 </body>

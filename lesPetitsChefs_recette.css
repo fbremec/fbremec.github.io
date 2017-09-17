@@ -1,0 +1,10 @@
+.corp{
+	border: solid 1px black;
+	margin-top:50px;
+	overflow-y: auto;
+	height: 750px;
+}
+.enTete{
+	border: solid 1px black;
+
+}

@@ -25,10 +25,14 @@
 		</ul>
 	</div>
 	<div class="containerPrincipal">
-		<h1>Ingrédients :</h1>
-		<div class="ingredients"></div>
-		<h1>Préparation :</h1>
-		<div class="preparation"></div>
+		<div class=enTete></div>
+		<div class="corp">
+			<h1>Ingrédients :</h1>
+			<div class="ingredients"></div>
+			<h1>Préparation :</h1>
+			<div class="preparation"></div>
+		</div>
+		
 
 	</div>
 
@@ -66,12 +70,17 @@
 		$(ul).appendTo($('.preparation'));
 	}
 
+	function printEnTete(recette){
+		var enTete = ""
+	}
+
 	function printRecette(recette){
 		if(recette == null){
 			var pErreur = "<p>Erreur la recette n'existe pas</p>";
 			$(pErreur).appendTo($('.containerPrincipal'));
 
 		}else{
+			printEnTete(recette)
 			for(var typeIngredients in recette.ingredients){
 				printIngredients(recette.ingredients[typeIngredients],typeIngredients)
 				
@@ -82,8 +91,6 @@
 
 		}
 	}
-
-
 
 	//add nom to titre
 	var pNom = "<p>"+nom+"</p>";

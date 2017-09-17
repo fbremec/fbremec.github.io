@@ -39,3 +39,9 @@ body{
 	height:40px;
 	width: 100%;
 }
+
+.containerPrincipal{
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}

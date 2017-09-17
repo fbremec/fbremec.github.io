@@ -18,7 +18,7 @@
 	<div class="navbar">
 		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
 		<ul class="listeOnglet">
-			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs">appéritifs</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs"><img src="apperitifs.png"></img></a></li>
 			<li><a href="">entrée</a></li>
 			<li><a href="">plat</a></li>
 			<li><a href="lesPetitsChefs_recettesByType.html?type=desserts">déssert</a></li>
@@ -27,9 +27,9 @@
 	<div class="containerPrincipal">
 		<div class=enTete></div>
 		<div class="corp">
-			<h1>Ingrédients :</h1>
+			<h2>Ingrédients :</h2>
 			<div class="ingredients"></div>
-			<h1>Préparation :</h1>
+			<h2>Préparation :</h2>
 			<div class="preparation"></div>
 		</div>
 		
@@ -57,7 +57,7 @@
 	}
 
 	function printPreparation(preparation, typePreparation){
-		var ul = "<p>"+typePreparation+" : </p> <ul>"
+		var ul = '<p>'+typePreparation+' : </p> <ul>'
 		var numero
 		for(var i=0; i<preparation.length;i++){
 			numero = i+1;
@@ -71,7 +71,8 @@
 	}
 
 	function printEnTete(recette){
-		var enTete = ""
+		var enTete = '<img src="'+recette.image+'"></img>'
+		$(enTete).appendTo($('.enTete'));
 	}
 
 	function printRecette(recette){

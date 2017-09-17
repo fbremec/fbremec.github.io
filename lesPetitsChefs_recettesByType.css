@@ -13,8 +13,6 @@ table{
 
 .listeRecette{
 	text-align: center;
-	width: 80%;
-	margin-left:10%;
 }
 
 .ligne0, .ligne1, .colonne{
@@ -28,4 +26,10 @@ table{
 
 .ligne0{
 	background: lightgrey;
+
+}
+
+#searchbarRecette{
+	margin-bottom: 20px;
+
 }

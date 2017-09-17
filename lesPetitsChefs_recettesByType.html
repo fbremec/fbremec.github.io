@@ -17,15 +17,16 @@
 	<div class="navbar">
 		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
 		<ul class="listeOnglet">
-			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs">appéritifs</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=apperitifs"><img src="apperitifs.png"></img></a></li>
 			<li><a href="">entrée</a></li>
 			<li><a href="">plat</a></li>
 			<li><a href="lesPetitsChefs_recettesByType.html?type=desserts">déssert</a></li>
 		</ul>
 	</div>
 
-	<div class="listeRecette">
-		<table>
+	<div class="containerPrincipal">
+		<input id="searchbarRecette" type="text" onkeyup="search()"></input>
+		<table class="listeRecette">
 			<thead>
 			   <tr class="ligne">
 			       <th class="colonne">Nom</th>
@@ -47,6 +48,25 @@
 		var url = new URL(url_String);
 		var type = url.searchParams.get("type");
 		
+		function search(){
+			var text = document.getElementById('searchbarRecette').value
+			var recettes = {};
+			switch(type){
+				case "apperitifs":
+					for(var nom in jsonRecettesApperitifs){
+						if(nom.includes(text)){
+							recettes[nom] = jsonRecettesApperitifs[nom];
+						}
+					}
+					break;
+				case "desserts":
+					break;
+			}
+
+			$('.tbody').empty()
+			addRecette(recettes);
+		}
+
 		function addRecette(json){
 			var recettes = json
 			var i = 0;

@@ -1,8 +1,9 @@
 var jsonRecettesApperitifs = {};
 jsonRecettesApperitifs["other test"] = ({"nom":"other test","difficulte":5,"prepa":"30 min","cuisson":"15 min","nbPersonne":2,"prix":"10 euro"});
+jsonRecettesApperitifs["test"] = ({"nom":"test","difficulte":5,"prepa":"30 min","cuisson":"15 min","nbPersonne":2,"prix":"10 euro"});
 
 var jsonRecettesDesserts = {};
-jsonRecettesDesserts["Choco cake"] = ({"nom":"Choco cake","difficulte":2.5,"prepa":"30 min","cuisson":"20 min","nbPersonne":6,"prix":"5 euro",
+jsonRecettesDesserts["Choco cake"] = ({"nom":"Choco cake","image":"http://img.taste.com.au/st1hE-GO/w643-h428-cfill-q90/taste/2016/11/dark-chocolate-mousse-cake-106692-1.jpeg","difficulte":2.5,"prepa":"30 min","cuisson":"20 min","nbPersonne":6,"prix":"5 euro",
 										"ingredients":{
 											"Gâteau":["200g de margarine","75g de chocolat au lait","75g de chocolat noir","4 oeux","2 grosse cuillère à soupe de farine","100g de sucre","1/2 sachet de levure"],
 											"Crème":["100ml de lait","40cl de crème liquide entière","150g de chocolat au lait","150g de chocolat noir","1 sachet d'Agar agar"]},

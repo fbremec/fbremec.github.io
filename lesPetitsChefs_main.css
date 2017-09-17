@@ -27,6 +27,12 @@ body{
 
 .closeSidebar{
 	margin-left: 230px;
+	cursor: pointer;
+	width: 5%;
+}
+
+.closeSidebar:hover{
+	width: 6%;
 }
 
 .listeOnglet{

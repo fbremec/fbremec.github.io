@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="containerPrincipal">
-		<input id="searchbarRecette" type="text" onkeyup="search()"></input>
+		<input id="searchbarRecette" type="text" onkeyup="search()" placeholder="recherche"></input>
 		<table class="listeRecette">
 			<thead>
 			   <tr class="ligne">
@@ -49,17 +49,22 @@
 		var type = url.searchParams.get("type");
 		
 		function search(){
-			var text = document.getElementById('searchbarRecette').value
+			var text = (document.getElementById('searchbarRecette').value).toLowerCase();
 			var recettes = {};
 			switch(type){
 				case "apperitifs":
 					for(var nom in jsonRecettesApperitifs){
-						if(nom.includes(text)){
+						if(nom.toLowerCase().includes(text)){
 							recettes[nom] = jsonRecettesApperitifs[nom];
 						}
 					}
 					break;
 				case "desserts":
+				for(var nom in jsonRecettesDesserts){
+						if(nom.toLowerCase().includes(text)){
+							recettes[nom] = jsonRecettesDesserts[nom];
+						}
+					}
 					break;
 			}
 

@@ -51,7 +51,8 @@
 		var url_String = window.location.href;
 		var url = new URL(url_String);
 		var type = url.searchParams.get("type");
-		var pType = "<p>"+type+"</p>"
+		var titreType = type.charAt(0).toUpperCase() + type.slice(1);
+		var pType = "<p>"+titreType+"</p>"
 		$(pType).appendTo($(".titre"))
 
 		

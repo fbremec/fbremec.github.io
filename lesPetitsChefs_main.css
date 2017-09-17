@@ -1,10 +1,15 @@
 body{
 	margin:0;
+	font-size: 20px;
 }
 
 .titre{
 	text-align: center;
 
+}
+
+.logo{
+	width:100%;
 }
 
 .navbar{
@@ -40,8 +45,13 @@ body{
 	margin:0;
 	padding-left: 5px;
 	margin-top: 20px;
+	width:220px;
 }
 
+.listeOnglet li{
+	border-top: solid 3px white;
+	padding: 10px;
+}
 
 
 .containerPrincipal{
@@ -62,10 +72,10 @@ body{
 }
 
 .listeOnglet img{
-	width:80%;
+	width:100%;
+
 }
 
-.listeOnglet img:hover{
+/*.listeOnglet img:hover{
 	width: 90%;
-}
-
+}*/

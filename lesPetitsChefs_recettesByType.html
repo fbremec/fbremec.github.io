@@ -16,10 +16,11 @@
 	<img class="imgMenu" onclick="displayMenu()" src="burgerldpi.png"/>
 	<div class="navbar">
 		<img class="closeSidebar" onclick="displayMenu()" src="close_sidebar.png"/>
+		<img class="logo	" src="logo.png"/>
 		<ul class="listeOnglet">
 			<li><a href="lesPetitsChefs_recettesByType.html?type=appéritifs"><img src="apperitifs.png"></img></a></li>
-			<li><a href="">entrée</a></li>
-			<li><a href="">plat</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=entrées">entrée</a></li>
+			<li><a href="lesPetitsChefs_recettesByType.html?type=plats">plat</a></li>
 			<li><a href="lesPetitsChefs_recettesByType.html?type=desserts">déssert</a></li>
 		</ul>
 	</div>
@@ -42,12 +43,13 @@
 			   </tr>
 		   </thead>
 		   <tbody class="tbody">
-			   
+
 		   </tbody>
 		</table>
 	</div>
 	<script type="text/javascript">
-		
+		console.log(jsonRecettesApperitifs)
+
 		var url_String = window.location.href;
 		var url = new URL(url_String);
 		var type = url.searchParams.get("type");
@@ -55,7 +57,7 @@
 		var pType = "<p>"+titreType+"</p>"
 		$(pType).appendTo($(".titre"))
 
-		
+
 		function completeCombo(typeSecondaire){
 			for(var i in typeSecondaire[type]){
 				var option = " <option id="+typeSecondaire[type][i]+">"+typeSecondaire[type][i]+"</option>"
@@ -72,6 +74,22 @@
 						var recette = jsonRecettesApperitifs[nom];
 						if(recette.type.toLowerCase().includes(text) || text == "toutes"){
 							recettes[nom] = jsonRecettesApperitifs[nom];
+						}
+					}
+					break;
+				case "entrées":
+					for(var nom in jsonRecettesEntrees){
+						var recette = jsonRecettesEntrees[nom];
+						if(recette.type.toLowerCase().includes(text) || text == "toutes"){
+							recettes[nom] = jsonRecettesEntrees[nom];
+						}
+					}
+					break;
+				case "plats":
+					for(var nom in jsonRecettesPlats){
+						var recette = jsonRecettesPlats[nom];
+						if(recette.type.toLowerCase().includes(text) || text == "toutes"){
+							recettes[nom] = jsonRecettesPlats[nom];
 						}
 					}
 					break;
@@ -100,8 +118,22 @@
 						}
 					}
 					break;
+				case "entrées":
+					for(var nom in jsonRecettesEntrees){
+						if(nom.toLowerCase().includes(text)){
+							recettes[nom] = jsonRecettesEntrees[nom];
+						}
+					}
+					break;
+				case "plats":
+					for(var nom in jsonRecettesPlats){
+						if(nom.toLowerCase().includes(text)){
+							recettes[nom] = jsonRecettesPlats[nom];
+						}
+					}
+					break;
 				case "desserts":
-				for(var nom in jsonRecettesDesserts){
+					for(var nom in jsonRecettesDesserts){
 						if(nom.toLowerCase().includes(text)){
 							recettes[nom] = jsonRecettesDesserts[nom];
 						}
@@ -140,12 +172,18 @@
 			case "appéritifs":
 				addRecette(jsonRecettesApperitifs);
 				break;
+			case "entrées":
+				addRecette(jsonRecettesEntrees)
+				break;
+			case "plats":
+				addRecette(jsonRecettesPlats)
+				break;
 			case "desserts":
 				addRecette(jsonRecettesDesserts)
 				break;
 		}
 
-		
+
 
 	</script>
 </body>

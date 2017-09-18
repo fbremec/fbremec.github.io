@@ -53,9 +53,9 @@
 		var url_String = window.location.href;
 		var url = new URL(url_String);
 		var type = url.searchParams.get("type");
-		var titreType = type.charAt(0).toUpperCase() + type.slice(1);
+		/*var titreType = type.charAt(0).toUpperCase() + type.slice(1);
 		var pType = "<p>"+titreType+"</p>"
-		$(pType).appendTo($(".titre"))
+		$(pType).appendTo($(".titre"))*/
 
 
 		function completeCombo(typeSecondaire){
@@ -170,15 +170,23 @@
 
 		switch(type){
 			case "appéritifs":
+				var img = '<img src="apperitifs.png"></img>';
+				($(img)).appendTo($(".titre"))
 				addRecette(jsonRecettesApperitifs);
 				break;
 			case "entrées":
+				var img = '<img src="entree.png"></img>';
+				($(img)).appendTo($(".titre"))
 				addRecette(jsonRecettesEntrees)
 				break;
 			case "plats":
+				var img = '<img src="plat.png"></img>';
+				($(img)).appendTo($(".titre"))
 				addRecette(jsonRecettesPlats)
 				break;
 			case "desserts":
+				var img = '<img src="dessert.png"></img>';
+				($(img)).appendTo($(".titre"))
 				addRecette(jsonRecettesDesserts)
 				break;
 		}

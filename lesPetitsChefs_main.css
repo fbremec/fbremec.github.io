@@ -48,12 +48,12 @@ body{
 	margin-top: 20px;
 	width:220px;
 }
+
 .listeOnglet img{
-	width: 90%;
-}
-.listeOnglet img:hover{
 	width: 100%;
 }
+
+
 
 .listeOnglet li{
 	border-top: solid 3px white;

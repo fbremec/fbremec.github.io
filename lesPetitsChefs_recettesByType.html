@@ -48,7 +48,7 @@
 		</table>
 	</div>
 	<script type="text/javascript">
-		console.log(jsonRecettesApperitifs)
+		
 
 		var url_String = window.location.href;
 		var url = new URL(url_String);
@@ -151,8 +151,8 @@
 			for(var nom in recettes){
 				var j = i%2;
 				var recette = recettes[nom]
-				var tr = 	"<tr class='ligne"+j+"'>"
-								+"<td class='colonne'> <a href='lesPetitsChefs_recette.html?nom="+recette.nom+"&type="+type+"'>"+ recette.nom +"</a> </td>"
+				var tr = 	"<tr class='ligne"+j+"' onclick=\"document.location.href='lesPetitsChefs_recette.html?nom="+recette.nom+"&type="+type+"'\">"
+								+"<td class='colonne'> "+recette.nom +"</td>"
 								+"<td class='colonne'> "+ recette.type +" </td>"
 					       		+"<td class='colonne'> "+ recette.difficulte +" </td>"
 					       		+"<td class='colonne'> "+ recette.prepa +" </td>"

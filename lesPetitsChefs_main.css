@@ -86,3 +86,12 @@ body{
 /*.listeOnglet img:hover{
 	width: 90%;
 }*/
+
+@media all and (max-width: 1200px){
+
+	.containerPrincipal{
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+}

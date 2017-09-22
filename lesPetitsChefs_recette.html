@@ -45,7 +45,9 @@
 	var type = url.searchParams.get("type");
 
 	function printIngredients(ingredients, typeIngredients){
-		var ul = "<p>"+typeIngredients+" : </p> <ul>"
+		var ul = "";
+		if(typeIngredients != "")
+			ul = "<p>"+typeIngredients+" : </p> <ul>"
 
 		for(var i=0; i<ingredients.length;i++){
 			console.log(ingredients[i])
@@ -58,7 +60,10 @@
 	}
 
 	function printPreparation(preparation, typePreparation){
-		var ul = '<p>'+typePreparation+' : </p> <ul>'
+		var ul = "";
+		if(typePreparation != "")
+			ul = '<p>'+typePreparation+' : </p> <ul>'
+
 		var numero
 		for(var i=0; i<preparation.length;i++){
 			numero = i+1;
